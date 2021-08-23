@@ -1,16 +1,13 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { Splash, Text } from "@components";
+import { Splash } from "@components";
+import Navigator from "@config/navigator";
 
-export default function App() {
+export default function App(): ReactElement {
     return (
         <Splash>
-            <View style={styles.container}>
-                <Text bold onPress={() => alert(true)} style={{ fontSize: 40 }}>
-                    Hello World
-                </Text>
-            </View>
+            <Navigator />
         </Splash>
     );
 }

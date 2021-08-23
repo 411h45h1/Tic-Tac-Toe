@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Game, Home } from "@screens";
+import { StyleSheet, View } from "react-native";
 import {
     useFonts,
     ComicNeue_400Regular,
     ComicNeue_700Bold,
 } from "@expo-google-fonts/comic-neue";
 import AppLoading from "expo-app-loading";
+import { Text } from "@components";
 
 export default function App() {
     const [fontLoaded] = useFonts({
@@ -17,7 +17,9 @@ export default function App() {
     if (!fontLoaded) return <AppLoading />;
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Hellow World</Text>
+            <Text bold onPress={() => alert(true)} style={{ fontSize: 40 }}>
+                Hello World
+            </Text>
         </View>
     );
 }
@@ -28,9 +30,5 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
-    },
-    text: {
-        fontFamily: "ComicNeue_400Regular",
-        fontSize: 20,
     },
 });

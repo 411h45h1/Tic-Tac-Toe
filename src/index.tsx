@@ -1,12 +1,23 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Game, Home } from "@screens";
+import {
+    useFonts,
+    ComicNeue_400Regular,
+    ComicNeue_700Bold,
+} from "@expo-google-fonts/comic-neue";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
+    const [fontLoaded] = useFonts({
+        ComicNeue_400Regular,
+        ComicNeue_700Bold,
+    });
+
+    if (!fontLoaded) return <AppLoading />;
     return (
         <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
+            <Text style={styles.text}>Hellow World</Text>
         </View>
     );
 }
@@ -17,5 +28,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+    },
+    text: {
+        fontFamily: "ComicNeue_400Regular",
+        fontSize: 20,
     },
 });
